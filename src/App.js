@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Link, Outlet, Route, Routes } from 'react-router-dom';
+import { Link, Outlet, Route, Routes, useParams } from 'react-router-dom';
 
 //자식 컴포넌트-------------------------------------------------------------------------------------------
 function Home(){
@@ -19,6 +19,16 @@ const content=[
   {id:3, title:"JavaScript", body:"javascript is ..."},
 ]
 
+function Topic(){
+  const { topicid } = useParams(); // useParams() 로 파라미터를 다 가져와 topicid에 구조분해
+  const topic = content.find((t)=>t.id === Number(topicid)); //  topicid 의 넘버와 content의 id 를 find로 하나만 찾아 비교 topic에 대입
+  return(
+    <>
+    <h3>{topic.body}</h3>
+    </>
+  );
+};
+
 function Topics(){
   const list =[];
   for(let t of content){
@@ -27,7 +37,10 @@ function Topics(){
   return(
     <>
     <h2>Topics</h2>
-    <p>{list}</p>
+    <ul>
+      {list}
+    </ul>
+    <Outlet />
     </>
   );
 };
@@ -72,7 +85,9 @@ function App() {
         <Route path='/' element={<MainLayout/>}>
           <Route index element={<Welcome/>}></Route>
           <Route path='/home' element={<Home/>}></Route>
-          <Route path='/topics' element={<Topics/>}></Route>
+          <Route path='/topics' element={<Topics/>}>
+            <Route path='/topics/:topicid' element={<Topic/>}></Route>
+          </Route>
           <Route path='/contact' element={<Contact/>}></Route>
         </Route>
       </Routes>

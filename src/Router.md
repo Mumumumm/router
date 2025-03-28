@@ -86,6 +86,32 @@ function Topics(){
 ```
 
 
+Topics 에 자식 경로 넣는법
+```js
+<Route path='/topics' element={<Topics/>}>
+    <Route path='/topics/:topicid' element={<Topic/>></Route>
+</Route>
+
+핵심은 /topics/ :topicid <-이거 (:) 뭐라도 들어오면 (topicid) 변수명 
+토픽의 id topics의 자식으로 toicid가 들어갈거고 그 id를 Toipc에게 제공해서 사용한다 
+
+<Route path='/topics/:topicid' element={<Topic/>}></Route> 가 컴포넌트 Topics에 있는 Outlet 으로 들어간다
+
+: 또는 * 뒤에 적힌 변수명를 Topic 컴포넌트에 적용
+
+* 아무거나 넣겠다.
+: 변수명에 넣겠다.
+
+```
+
+ useParams(); 파라미터 들어간자리 즉 : 뒤에 들어간 것들을 가져온다
+
+{ topicid } 객체 구조 분해 가능하다
+
+
+
+
+
 
 
 
