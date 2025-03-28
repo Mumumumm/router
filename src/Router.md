@@ -108,6 +108,23 @@ Topics 에 자식 경로 넣는법
 
 { topicid } 객체 구조 분해 가능하다
 
+```js
+const content=[
+  {id:1, title:"Html", body:"html is ..."},
+  {id:2, title:"Css", body:"css is ..."},
+  {id:3, title:"JavaScript", body:"javascript is ..."},
+]
+
+function Topic(){
+  const { topicid } = useParams(); // useParams() 로 파라미터를 다 가져와 topicid에 구조분해
+  const topic = content.find((t)=>t.id === Number(topicid)); //  topicid 의 넘버와 content의 id 를 find로 하나만 찾아 비교 topic에 대입
+  return(
+    <>
+    <h3>{topic.body}</h3>
+    </>
+  );
+};
+```
 
 
 
