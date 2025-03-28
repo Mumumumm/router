@@ -1,6 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
 
+//자식 컴포넌트-------------------------------------------------------------------------------------------
+function Home(){
+  return(
+    <>
+    <h2>Home</h2>
+    <p>Home is...</p>
+    </>
+  );
+;}
+
+function Topics(){
+  return(
+    <>
+    <h2>Topics</h2>;
+    <p>topics is...</p>;
+    </>
+  );
+};
+
+function Contact(){
+  return(
+    <>
+    <h2>Contact</h2>
+    <p>contact is...</p>
+    </>
+  );
+};
+
+//부모 컴포넌트-------------------------------------------------------------------------------------------
 function App() {
   return (
     <div className="App">
