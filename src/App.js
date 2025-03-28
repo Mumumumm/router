@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Link, Outlet, Route, Routes, useParams } from 'react-router-dom';
+import { Link, Outlet, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 
 //자식 컴포넌트-------------------------------------------------------------------------------------------
 function Home(){
@@ -55,6 +55,7 @@ function Contact(){
 };
 
 function MainLayout(){
+  const navigate = useNavigate();
   return(
     <>
       <h1>Hello React Router</h1>
@@ -64,6 +65,9 @@ function MainLayout(){
         <li><Link to='/contact'>Contact</Link></li>
       </ul>
       <Outlet/>
+      <button onClick={(e)=>{
+        navigate("/") // 클릭 하면 해당경로도 이동 콜백 현재는 <Route path='/' element={<MainLayout/>}>이거
+      }}>집으로</button>
     </>
   )
 }

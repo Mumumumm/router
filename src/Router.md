@@ -126,7 +126,9 @@ function Topic(){
 };
 ```
 
-
+처음으로 돌아가기 useNavigate();
+    const navigate = useNavigate(); 변수명 navigate는 마음대로
+    navigate("/") 바로 해당경로로 이동
 
 
 
