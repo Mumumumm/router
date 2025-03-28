@@ -59,7 +59,31 @@ MainLayout 에 대표로 들어갈 자식 컴포넌트 는 index element 사용�
  Welcome 이라는 컴포넌트를 처음 화면에 대표로 띄워준다
  ```
 
+자식컴포넌트에 안쪽경로 추가
 
+```js
+const content=[
+  {id:1, title:"Html", body:"html is ..."},
+  {id:2, title:"Css", body:"css is ..."},
+  {id:3, title:"JavaScript", body:"javascript is ..."},
+]
+안쪽 경로 먼저 생성
+
+function Topics(){
+  const list =[];
+  for(let t of content){
+    list.push(<li><Link to={'/topics/'+t.id}>{t.title}</Link></li>);
+  }
+  return(
+    <>
+    <h2>Topics</h2>
+    <p>{list}</p>
+    </>
+  );
+};
+
+{list} 에 묶어 넣기
+```
 
 
 

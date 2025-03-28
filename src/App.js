@@ -12,11 +12,22 @@ function Home(){
   );
 ;}
 
+// Topics에 content 배열객체 추가하기
+const content=[
+  {id:1, title:"Html", body:"html is ..."},
+  {id:2, title:"Css", body:"css is ..."},
+  {id:3, title:"JavaScript", body:"javascript is ..."},
+]
+
 function Topics(){
+  const list =[];
+  for(let t of content){
+    list.push(<li><Link to={'/topics/'+t.id}>{t.title}</Link></li>);
+  }
   return(
     <>
     <h2>Topics</h2>
-    <p>topics is...</p>
+    <p>{list}</p>
     </>
   );
 };
@@ -70,3 +81,9 @@ function App() {
 }
 
 export default App;
+
+
+{/* <Route index element={<Welcome/>}></Route> 대표 자식 라우터
+<Route path='/home' element={<Home/>}></Route> 자식
+<Route path='/topics' element={<Topics/>}></Route> 자식
+<Route path='/contact' element={<Contact/>}></Route> 자식 */}
