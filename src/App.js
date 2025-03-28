@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 
 //자식 컴포넌트-------------------------------------------------------------------------------------------
 function Home(){
@@ -30,21 +30,30 @@ function Contact(){
   );
 };
 
+function MainLayout(){
+  return(
+    <>
+      <h1>Hello React Router</h1>
+      <ul>
+        <li><Link to='/home' >Home</Link></li>
+        <li><Link to='/topics'>Topics</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
+      </ul>
+      <Outlet></Outlet>
+    </>
+  )
+}
+
 //부모 컴포넌트-------------------------------------------------------------------------------------------
 function App() {
   return (
     <div className="App">
-      <h1>Hello React Router</h1>
-      <ul>
-        <li><Link to href='/home' >Home</Link></li>
-        <li><Link to href='/topics'>Topics</Link></li>
-        <li><Link to href='/contact'>Contact</Link></li>
-      </ul>
-
       <Routes>
-        <Route path='/home' element={<Home/>}></Route>
-        <Route path='/topics' element={<Topics/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
+        <Route path='/' element={<MainLayout/>}>
+          <Route path='/home' element={<Home/>}></Route>
+          <Route path='/topics' element={<Topics/>}></Route>
+          <Route path='/contact' element={<Contact/>}></Route>
+        </Route>
       </Routes>
     </div>
   );
