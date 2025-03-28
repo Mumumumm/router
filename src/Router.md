@@ -16,12 +16,13 @@ element={<Home/> 이 컴포넌트를 연결하겠다
 
 path='' 는 이름이 달라도 상관없지만 대문자를 사용하지 말자, 주소에서 소문자로 나오기 때문에
 
-
+```js
 <Routes>
     <Route path='/home' element={<Home/>}></Route>
     <Route path='/topics' element={<Topics/>}></Route>
     <Route path='/contact' element={<Contact/>}></Route>
 </Routes>
+```
 를 따로 파일을 만들어 주고 App컴포넌트에 import해줄수도 있다
 
 react에서는 a태그를 사용하지 않고 <Link to></Link>를 사용한다.
@@ -34,9 +35,29 @@ App 에 라우터만 남겨놓기
 
 MainLayout 라우터를 부모로 레이아웃이 바뀌는 자식라우터들을 묶어준다.
 <Outlet></Outlet> 으로 묶여진 자식 라우터를 연결시켜주는것
+상황에 따라 연결시켜주는 기능
 
+```js
+function MainLayout(){
+  return(
+    <>
+      <h1>Hello React Router</h1>
+      <ul>
+        <li><Link to='/home' >Home</Link></li>
+        <li><Link to='/topics'>Topics</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
+      </ul>
+      <Outlet/>
+    </>
+  )
+}
+```
 
-
+MainLayout 에 대표로 들어갈 자식 컴포넌트 는 index element 사용하기
+```js
+ <Route index element={<Welcome/>}></Route>
+ Welcome 이라는 컴포넌트를 처음 화면에 대표로 띄워준다
+ ```
 
 
 

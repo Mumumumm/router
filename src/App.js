@@ -39,10 +39,19 @@ function MainLayout(){
         <li><Link to='/topics'>Topics</Link></li>
         <li><Link to='/contact'>Contact</Link></li>
       </ul>
-      <Outlet></Outlet>
+      <Outlet/>
     </>
   )
 }
+
+function Welcome(){
+  return(
+    <>
+    <h2>Welcome Router world</h2>
+    <p>Welcome to world...</p>
+    </>
+  );
+};
 
 //부모 컴포넌트-------------------------------------------------------------------------------------------
 function App() {
@@ -50,6 +59,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<MainLayout/>}>
+          <Route index element={<Welcome/>}></Route>
           <Route path='/home' element={<Home/>}></Route>
           <Route path='/topics' element={<Topics/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
