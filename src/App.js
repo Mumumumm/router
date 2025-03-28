@@ -36,9 +36,9 @@ function App() {
     <div className="App">
       <h1>Hello React Router</h1>
       <ul>
-        <li><a href='/home' >Home</a></li>
-        <li><a href='/topics'>Topics</a></li>
-        <li><a href='/contact'>Contact</a></li>
+        <li><Link to href='/home' >Home</Link></li>
+        <li><Link to href='/topics'>Topics</Link></li>
+        <li><Link to href='/contact'>Contact</Link></li>
       </ul>
 
       <Routes>
